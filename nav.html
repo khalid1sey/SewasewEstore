@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> | Sewasew Estore</title>
+	<link rel="icon" type="image/x-icon" href="assets/icons/store-sign-svgrepo-com.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+        }
+        nav {
+            box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+        }
+        ul {
+            width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        li {
+            height: 60px;
+        }
+        a {
+            height: 100%;
+            padding: 0 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: #000;
+        }
+        nav a:hover {
+            background-color: #f0f0f0;
+        }
+        nav li:first-child() {
+            margin-right: auto;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 250px;
+            z-index: 999;
+            background-color: #fff;
+            backdrop-filter: blur(10px);
+            box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        .line {
+            margin: 5px;
+            display: block;
+            background-color: #000;
+            width: 28px;
+            border-radius:30%;
+            height: 3px;
+        }
+        .sidebar li:first-child {
+            position: relative;
+            right: -60%;
+        }
+        .sidebar .line1 {
+            transform: rotate(45deg);
+        }
+        .sidebar .line2 {
+            display: none;
+        }
+        .sidebar .line3 {
+            transform: rotate(-45deg);
+        }
+        @media(max-width: 800px) {
+            nav .hideOnMobile {
+                display: none;
+            }
+            nav .menu-btn .lines {
+                display: block;
+            }
+        }
+        @media(max-width: 400px) {
+            nav .sidebar {
+                width: 100%;
+            }
+        }
+        @media(min-width: 800px) {
+            .menu-btn {
+            display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="sidebar">
+            <li onclick="hideSidebar()"><a href="#"><div class="lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+            </div></a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Forum</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="menu">
+            <li class="hideOnMobile" ><a href="#">Blog</a></li>
+            <li class="hideOnMobile"><a href="#">Products</a></li>
+            <li class="hideOnMobile"><a href="#">Forum</a></li>
+            <li class="hideOnMobile"><a href="#">About</a></li>
+            <li class="hideOnMobile"><a href="#">Contact</a></li>
+            <li class="menu-btn" onclick="showSidebar()"><a href="#">
+                <div class="lines">
+                    <span class="line line1"></span>
+                    <span class="line line1"></span>
+                    <span class="line line1"></span>
+                </div>
+            </a></li>
+        </ul>
+    </nav>
+    <script>
+        function showSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+        function hideSidebar() {
+            const menu = document.querySelector('.sidebar')
+            menu.style.display = 'none'
+        }
+    </script>
+</body>
