@@ -46,7 +46,7 @@ function hideSidebar() {
 // }
 
 
-function cartAdd() {
-  var cart = document.querySelector('.cart-holder');
-  for(var i = 0; i <= )
-}
+// function cartAdd() {
+//   var cart = document.querySelector('.cart-holder');
+//   for(var i = 0; i <= )
+// }
