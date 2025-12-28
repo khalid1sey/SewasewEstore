@@ -1,0 +1,21 @@
+name: Daily Streak Automation
+on:
+  schedule:
+    - cron: "0 0 * * *" # Runs daily at midnight UTC
+  workflow_dispatch: # Allows you to run it manually for testing
+
+jobs:
+  commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update log
+        run: |
+          date >> streak-log.txt
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add streak-log.txt
+          git commit -m "Daily streak update: $(date)"
+          git push
